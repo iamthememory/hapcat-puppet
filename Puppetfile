@@ -19,3 +19,4 @@ forge "https://forge.puppet.com"
 
 mod 'puppetlabs/ntp', '7.1.0'
 mod 'puppetlabs/stdlib'
+mod 'stankevich-python'

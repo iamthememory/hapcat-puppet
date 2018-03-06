@@ -1,0 +1,5 @@
+---
+message: "Setting up Hephaestus"
+
+classes:
+  - 'profile::hapcat::apiserver'
