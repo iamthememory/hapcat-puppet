@@ -11,4 +11,29 @@ class profile::hapcat::apiserver (
     url     => 'git+https://github.com/iamthememory/hapcat-backend.git',
     ensure  => 'present',
   }
+
+  file { '/lib/systemd/system/hapcat-apiserver.service':
+    mode    => '0644',
+    owner   => 'root',
+    group   => 'root',
+    content => template('hapcat-apiserver.service.erb'),
+    notify  => [
+      Exec['hapcat-apiserver-systemd-reload'],
+    ],
+  }
+
+  exec { 'hapcat-apiserver-systemd-reload':
+    command     => 'systemctl daemon-reload',
+    path        => [ '/usr/bin', '/bin', '/usr/sbin', '/sbin' ],
+    refreshonly => true,
+    notify      => [
+      Exec['hapcat-apiserver'],
+    ],
+  }
+
+  service { 'hapcat-apiserver':
+    ensure   => running,
+    enable   => true,
+    provider => 'systemd',
+  }
 }

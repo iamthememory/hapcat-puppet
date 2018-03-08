@@ -1,0 +1,13 @@
+[Unit]
+Description=The Hapcat API Server
+Wants=basic.target
+After=basic.target network.target
+
+[Service]
+ExecStart=/usr/bin/env python -m hapcat.apiserver
+KillMode=process
+Restart=on-failure
+RestartSec=20s
+
+[Install]
+WantedBy=multi-user.target
