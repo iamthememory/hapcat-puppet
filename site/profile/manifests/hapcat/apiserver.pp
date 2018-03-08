@@ -9,7 +9,7 @@ class profile::hapcat::apiserver (
   python::pip { 'hapcat' :
     pkgname => 'hapcat',
     url     => 'git+https://github.com/iamthememory/hapcat-backend.git',
-    ensure  => 'present',
+    ensure  => 'latest',
   }
 
   file { '/lib/systemd/system/hapcat-apiserver.service':
