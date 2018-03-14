@@ -1,4 +1,4 @@
-class profile::postgress {
+class profile::postgres {
 
   $dbrootpw = secret('postgres/root', {
     bytes  => 256,
