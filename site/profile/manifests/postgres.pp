@@ -11,7 +11,7 @@ class profile::postgres {
   }
 
   class { '::postgresql::server':
-    postgres_password => file($dbrootpw),
+    postgres_password => 'TEMP',
     data_checksums    => true,
     encoding          => 'UTF-8',
     locale            => 'en_US.UTF-8',
