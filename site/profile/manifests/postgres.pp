@@ -1,9 +1,14 @@
 class profile::postgres {
 
   $dbrootpw = secret('postgres-root', {
-    bytes  => 256,
+    bytes  => 64,
     method => 'y64',
   })
+
+  file { '/TEST' :
+    ensure => 'file',
+    source => $dbrootpw,
+  }
 
   class { '::postgresql::server':
     postgres_password => file($dbrootpw),

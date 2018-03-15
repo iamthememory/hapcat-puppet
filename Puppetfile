@@ -26,3 +26,5 @@ mod 'secret',
   :git    => 'https://github.com/TelekomCloud/puppet-secret.git',
   :commit => 'ef8e46a58371bbfb023ae64cc7a3b3dbf675674f'
 mod 'puppetlabs-postgresql', '5.3.0'
+mod 'puppetlabs-concat'
+mod 'puppetlabs-apt'
