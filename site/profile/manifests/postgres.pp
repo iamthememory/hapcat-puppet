@@ -1,17 +1,11 @@
 class profile::postgres {
 
-  $dbrootpw = secret('postgres-root', {
-    bytes  => 64,
-    method => 'y64',
-  })
+  $postgres_pw = hiera('postgres_pw')
 
-  file { '/TEST' :
-    ensure => 'file',
-    source => $dbrootpw,
-  }
+  notify {"Using postgres password ${postgrespw}":}
 
   class { '::postgresql::server':
-    postgres_password => 'TEMP',
+    postgres_password => hiera('postgres_pw'),
     data_checksums    => true,
     encoding          => 'UTF-8',
     locale            => 'en_US.UTF-8',
