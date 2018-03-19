@@ -2,8 +2,6 @@ class profile::postgres {
 
   $postgres_pw = hiera('postgres_pw')
 
-  notify {"Using postgres password ${postgres_pw}":}
-
   class { '::postgresql::server':
     postgres_password => $postgres_pw,
     data_checksums    => true,
