@@ -5,8 +5,8 @@ defaults:
   datadir: "data"
 
 hierarchy:
-  - name 'Secret data'
-    lookup_key: eyaml_lookup_key
+  - name: 'Secret data'
+    lookup_key: "eyaml_lookup_key"
     paths:
       - "secrets/nodes/%{trusted.certname}.eyaml"
     options:
