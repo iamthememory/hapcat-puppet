@@ -5,6 +5,12 @@ defaults:
   datadir: "data"
 
 hierarchy:
+  - name 'Secret data'
+    lookup_key: eyaml_lookup_key
+    paths:
+      - "secrets/nodes/%{trusted.certname}.eyaml"
+    options:
+      gpg_gnupghome: "/etc/puppetlabs/puppet/eyaml-gpg"
   - name: 'Yaml backend'
     data_hash: yaml_data
     paths:
