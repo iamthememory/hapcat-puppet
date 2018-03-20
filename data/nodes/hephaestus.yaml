@@ -4,3 +4,4 @@ message: "Setting up Hephaestus"
 classes:
   - 'profile::hapcat'
   - 'profile::postgres'
+  - 'profile::r10k'
