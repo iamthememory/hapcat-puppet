@@ -20,7 +20,7 @@ forge "https://forge.puppet.com"
 mod 'puppetlabs/ntp', '7.1.0'
 mod 'puppetlabs/stdlib'
 mod 'stankevich-python'
-mod 'iamthememory-hapcat', '0.0.6'
+mod 'iamthememory-hapcat', '0.0.8'
 mod 'camptocamp/systemd'
 mod 'secret',
   :git    => 'https://github.com/TelekomCloud/puppet-secret.git',
