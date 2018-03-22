@@ -9,3 +9,4 @@ ntp::servers:
   - 1.us.pool.ntp.org
 
 hapcat::package_ensure: '0.0.2.dev0'
+hapcat::package_pip_install_args: '--upgrade'
