@@ -18,7 +18,7 @@ forge "https://forge.puppet.com"
 
 
 mod 'puppetlabs/ntp', '7.1.0'
-mod 'puppetlabs/stdlib'
+mod 'puppetlabs/stdlib', '4.25.1'
 mod 'stankevich-python'
 mod 'iamthememory-hapcat', '0.0.13'
 mod 'camptocamp/systemd'
