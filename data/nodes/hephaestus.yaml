@@ -5,3 +5,8 @@ classes:
   - 'profile::hapcat'
   - 'profile::postgres'
   - 'profile::r10k'
+
+hapcat::database_loadtestdata: true
+hapcatdbuser: 'hapcat'
+hapcatdb: 'hapcat'
+hapcat::database_url: "postgresql+psycopg2://%{lookup('hapcatdbuser')}:%{lookup('hapcatdbpw')}@localhost:5432/%{lookup('hapcatdb')}"
