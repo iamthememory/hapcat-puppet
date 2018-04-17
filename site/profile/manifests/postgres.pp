@@ -19,7 +19,6 @@ class profile::postgres {
     username        => $hapcatdbuser,
   } ->
   postgresql::server::database { $hapcatdb :
-    ensure  => 'present',
     comment => 'Hapcat database',
     owner    => $hapcatdbuser,
   }
