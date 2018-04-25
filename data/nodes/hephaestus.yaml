@@ -20,17 +20,24 @@ nginx::nginx_servers:
     use_default_location: false
     server_name:
       - 'hapcat.tenaisenma.com'
-      - 'hephaestus.tenaisenma.com'
 
     locations:
       '/':
         include:
           - 'uwsgi_params'
         uwsgi: 'unix:///run/hapcat.socket'
+
   'hapcatalt':
     listen_port: 8080
     server_name:
       - 'hapcat.tenaisenma.com'
+      - 'hephaestus.tenaisenma.com'
+    rewrite_rules:
+      - '^/(.*)$ http://hapcat.tenaisenma.com/$1 permanent'
+
+  'hephaestus':
+    listen_port: 80
+    server_name:
       - 'hephaestus.tenaisenma.com'
     rewrite_rules:
       - '^/(.*)$ http://hapcat.tenaisenma.com/$1 permanent'
