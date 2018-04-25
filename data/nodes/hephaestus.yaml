@@ -28,13 +28,10 @@ nginx::nginx_servers:
 
     locations:
       '/':
+        priority: 550
         include:
           - 'uwsgi_params'
         uwsgi: 'unix:///run/hapcat.socket'
-
-      'hapcat.tenaisenma.com/.well-known':
-        location: '/.well-known'
-        www_root: '/var/hapcatweb'
 
   'hapcatalt':
     listen_port: 8080
@@ -51,11 +48,6 @@ nginx::nginx_servers:
     ssl_cert: '/etc/letsencrypt/live/hephaestus.tenaisenma.com/fullchain.pem'
     server_name:
       - 'hephaestus.tenaisenma.com'
-
-    locations:
-      'hephaestus.tenaisenma.com/.well-known':
-        location: '/.well-known'
-        www_root: '/var/hapcatweb'
     rewrite_rules:
       - '^/(.*)$ http://hapcat.tenaisenma.com/$1 permanent'
 
@@ -66,5 +58,3 @@ letsencrypt::config:
 letsencrypt_nginx::servers:
   'hapcat.tenaisenma.com': {}
   'hephaestus.tenaisenma.com': {}
-
-letsencrypt_nginx::webroot: '/var/hapcatweb'
