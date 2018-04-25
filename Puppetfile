@@ -20,7 +20,7 @@ forge "https://forge.puppet.com"
 mod 'puppetlabs/ntp', '7.1.0'
 mod 'puppetlabs/stdlib', '4.25.1'
 mod 'stankevich-python'
-mod 'iamthememory-hapcat', '0.0.22'
+mod 'iamthememory-hapcat', '0.0.23'
 mod 'puppet/nginx', '0.11.0'
 mod 'camptocamp/systemd'
 mod 'secret',

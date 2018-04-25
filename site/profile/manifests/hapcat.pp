@@ -1,6 +1,7 @@
 class profile::hapcat {
   class { '::hapcat':
-    package_pip_url          => 'git+https://github.com/iamthememory/hapcat-backend.git',
+    package_pip_url => 'git+https://github.com/iamthememory/hapcat-backend.git',
+    service_group   => 'www-data'
   }
 
   class { '::nginx':
