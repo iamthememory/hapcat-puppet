@@ -24,4 +24,4 @@ nginx::nginx_servers:
       '/':
         include:
           - 'uwsgi_params'
-        uwsgi: '/run/hapcat.socket'
+        uwsgi: 'unix:///run/hapcat.socket'
