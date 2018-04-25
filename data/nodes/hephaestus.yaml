@@ -10,3 +10,15 @@ hapcat::database_loadtestdata: true
 hapcatdbuser: 'hapcat'
 hapcatdb: 'hapcat'
 hapcat::database_url: "postgresql+psycopg2://%{lookup('hapcatdbuser')}:%{lookup('hapcatdbpw')}@localhost:5432/%{lookup('hapcatdb')}"
+
+
+nginx::resource::servers:
+  'hapcat.tenaisenma.com':
+    listen_port: 80
+
+nginx::resource::locations:
+  '/':
+    server: 'hapcat.tenaisenma.com'
+    include:
+      - 'uwsgi_params'
+    uwsgi: '/run/hapcat.socket'
