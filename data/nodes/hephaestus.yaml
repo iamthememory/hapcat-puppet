@@ -17,7 +17,8 @@ nginx::nginx_servers:
     listen_port: 80
 
 nginx::nginx_locations:
-  '/':
+  'hapcatroot':
+    location: '/'
     server: 'hapcat.tenaisenma.com'
     include:
       - 'uwsgi_params'
