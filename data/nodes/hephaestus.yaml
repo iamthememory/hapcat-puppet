@@ -12,11 +12,11 @@ hapcatdb: 'hapcat'
 hapcat::database_url: "postgresql+psycopg2://%{lookup('hapcatdbuser')}:%{lookup('hapcatdbpw')}@localhost:5432/%{lookup('hapcatdb')}"
 
 
-nginx::resource::servers:
+nginx::nginx_servers:
   'hapcat.tenaisenma.com':
     listen_port: 80
 
-nginx::resource::locations:
+nginx::nginx_locations:
   '/':
     server: 'hapcat.tenaisenma.com'
     include:
