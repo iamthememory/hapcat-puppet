@@ -5,6 +5,9 @@ classes:
   - 'profile::hapcat'
   - 'profile::postgres'
   - 'profile::r10k'
+  - 'nginx'
+  - 'letsencrypt'
+  - 'letsencrypt_nginx'
 
 hapcat::database_loadtestdata: true
 hapcatdbuser: 'hapcat'
@@ -15,8 +18,11 @@ hapcat::use_http: false
 
 
 nginx::nginx_servers:
-  'hapcathttp':
-    listen_port: 80
+  'hapcat.tenaisenma.com':
+    ssl: true
+    ssl_redirect: true
+    ssl_key: '/etc/letsencrypt/live/hapcat.tenaisenma.com/privkey.pem'
+    ssl_cert: '/etc/letsencrypt/live/hapcat.tenaisenma.com/fullchain.pem'
     use_default_location: false
     server_name:
       - 'hapcat.tenaisenma.com'
@@ -35,9 +41,20 @@ nginx::nginx_servers:
     rewrite_rules:
       - '^/(.*)$ http://hapcat.tenaisenma.com/$1 permanent'
 
-  'hephaestus':
-    listen_port: 80
+  'hephaestus.tenaisenma.com':
+    ssl: true
+    ssl_redirect: true
+    ssl_key: '/etc/letsencrypt/live/hephaestus.tenaisenma.com/privkey.pem'
+    ssl_cert: '/etc/letsencrypt/live/hephaestus.tenaisenma.com/fullchain.pem'
     server_name:
       - 'hephaestus.tenaisenma.com'
     rewrite_rules:
       - '^/(.*)$ http://hapcat.tenaisenma.com/$1 permanent'
+
+letsencrypt::email: 'i.am.the.memory@gmail.com'
+letsencrypt::config:
+  server: 'https://acme-staging.api.letsencrypt.org/directory'
+
+letsencrypt_nginx::servers:
+  'hapcat.tenaisenma.com': {}
+  'hephaestus.tenaisenma.com': {}
