@@ -33,4 +33,4 @@ nginx::nginx_servers:
       - 'hapcat.tenaisenma.com'
       - 'hephaestus.tenaisenma.com'
     rewrite_rules:
-      - '^(/.*)$ http://hapcat.tenaisenma.com/$1 permanent'
+      - '^/(.*)$ http://hapcat.tenaisenma.com/$1 permanent'
