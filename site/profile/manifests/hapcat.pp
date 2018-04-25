@@ -8,4 +8,11 @@ class profile::hapcat {
     manage_repo    => true,
     package_source => 'nginx-mainline',
   }
+
+  file { '/var/hapcatweb':
+    ensure => 'directory',
+    owner  => 'www-data',
+    group  => 'www-data',
+    mode   => '0750',
+  }
 }
