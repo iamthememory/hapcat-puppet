@@ -11,6 +11,8 @@ hapcatdbuser: 'hapcat'
 hapcatdb: 'hapcat'
 hapcat::database_url: "postgresql+psycopg2://%{lookup('hapcatdbuser')}:%{lookup('hapcatdbpw')}@localhost:5432/%{lookup('hapcatdb')}"
 
+hapcat::use_http: false
+
 
 nginx::nginx_servers:
   'hapcathttp':
@@ -25,3 +27,10 @@ nginx::nginx_servers:
         include:
           - 'uwsgi_params'
         uwsgi: 'unix:///run/hapcat.socket'
+  'hapcatalt':
+    listen_port: 8080
+    server_name:
+      - 'hapcat.tenaisenma.com'
+      - 'hephaestus.tenaisenma.com'
+    rewrite_rules:
+      - '^(/.*)$ http://hapcat.tenaisenma.com/$1 permanent'
