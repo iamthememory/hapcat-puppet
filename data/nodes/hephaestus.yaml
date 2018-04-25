@@ -32,7 +32,8 @@ nginx::nginx_servers:
           - 'uwsgi_params'
         uwsgi: 'unix:///run/hapcat.socket'
 
-      '/.well-known':
+      'hapcat.tenaisenma.com/.well-known':
+        location: '/.well-known'
         www_root: '/var/hapcatweb'
 
   'hapcatalt':
@@ -52,7 +53,8 @@ nginx::nginx_servers:
       - 'hephaestus.tenaisenma.com'
 
     locations:
-      '/.well-known':
+      'hephaestus.tenaisenma.com/.well-known':
+        location: '/.well-known'
         www_root: '/var/hapcatweb'
     rewrite_rules:
       - '^/(.*)$ http://hapcat.tenaisenma.com/$1 permanent'
