@@ -22,6 +22,8 @@ mod 'puppetlabs/stdlib', '4.25.1'
 mod 'stankevich-python'
 mod 'iamthememory-hapcat', '0.0.24'
 mod 'puppet/nginx', '0.11.0'
+mod 'puppet/letsencrypt', '2.3.0'
+mod 'pgassman/letsencrypt_nginx', '2.0.2'
 mod 'camptocamp/systemd'
 mod 'secret',
   :git    => 'https://github.com/TelekomCloud/puppet-secret.git',
