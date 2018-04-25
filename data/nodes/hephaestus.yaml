@@ -5,7 +5,6 @@ classes:
   - 'profile::hapcat'
   - 'profile::postgres'
   - 'profile::r10k'
-  - 'nginx'
   - 'letsencrypt'
   - 'letsencrypt_nginx'
 
