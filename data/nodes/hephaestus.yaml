@@ -59,3 +59,4 @@ letsencrypt_nginx::servers:
   'hephaestus.tenaisenma.com': {}
 
 letsencrypt_nginx::firstrun_webroot: '/usr/share/nginx/html'
+letsencrypt_nginx::firstrun_standalone: true
