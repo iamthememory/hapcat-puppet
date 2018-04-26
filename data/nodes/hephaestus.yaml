@@ -57,3 +57,5 @@ letsencrypt::config:
 letsencrypt_nginx::servers:
   'hapcat.tenaisenma.com': {}
   'hephaestus.tenaisenma.com': {}
+
+letsencrypt_nginx::firstrun_webroot: '/usr/share/nginx/html'
