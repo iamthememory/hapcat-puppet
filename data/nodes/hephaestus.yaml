@@ -19,6 +19,7 @@ hapcat::use_http: false
 nginx::nginx_servers:
   'hapcat.tenaisenma.com':
     ssl: true
+    ssl_redirect: true
     ssl_key: '/etc/letsencrypt/live/hapcat.tenaisenma.com/privkey.pem'
     ssl_cert: '/etc/letsencrypt/live/hapcat.tenaisenma.com/fullchain.pem'
     use_default_location: false
@@ -27,7 +28,6 @@ nginx::nginx_servers:
 
     locations:
       '/':
-        priority: 550
         include:
           - 'uwsgi_params'
         uwsgi: 'unix:///run/hapcat.socket'
@@ -42,6 +42,7 @@ nginx::nginx_servers:
 
   'hephaestus.tenaisenma.com':
     ssl: true
+    ssl_redirect: true
     ssl_key: '/etc/letsencrypt/live/hephaestus.tenaisenma.com/privkey.pem'
     ssl_cert: '/etc/letsencrypt/live/hephaestus.tenaisenma.com/fullchain.pem'
     server_name:
