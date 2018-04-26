@@ -51,8 +51,6 @@ nginx::nginx_servers:
       - '^/(.*)$ http://hapcat.tenaisenma.com/$1 permanent'
 
 letsencrypt::email: 'i.am.the.memory@gmail.com'
-letsencrypt::config:
-  server: 'https://acme-staging.api.letsencrypt.org/directory'
 
 letsencrypt_nginx::servers:
   'hapcat.tenaisenma.com': {}
