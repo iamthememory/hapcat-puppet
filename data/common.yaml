@@ -8,6 +8,6 @@ ntp::servers:
   - 0.us.pool.ntp.org
   - 1.us.pool.ntp.org
 
-hapcat::package_ensure: '0.0.3'
+hapcat::package_ensure: '0.0.4.dev0'
 hapcat::package_pip_install_args: '--upgrade'
 hapcat::api_port: 8080
